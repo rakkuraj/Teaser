@@ -1,0 +1,1245 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stora Konferensen 2025 - iTid</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Arial, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            scroll-behavior: smooth;
+        }
+        
+        /* Header & Navigation */
+        header {
+            background: #fff;
+            color: #003057;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #006BA6;
+            font-family: Arial, sans-serif;
+        }
+        
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+        }
+        
+        nav a {
+            color: #003057;
+            text-decoration: none;
+            transition: color 0.3s;
+            font-weight: 400;
+        }
+        
+        nav a:hover {
+            color: #006BA6;
+        }
+        
+        /* Main Content */
+        main {
+            margin-top: 70px;
+        }
+        
+        section {
+            padding: 4rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #006BA6 0%, #003057 100%);
+            color: white;
+            text-align: center;
+            padding: 8rem 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E") repeat;
+        }
+        
+        .hero > * {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            font-weight: normal;
+            font-family: Arial, sans-serif;
+            animation: fadeInUp 1s ease-out;
+        }
+        
+        .hero .subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+            font-weight: normal;
+            animation: fadeInUp 1s ease-out 0.2s;
+            animation-fill-mode: both;
+        }
+        
+        .mystery-text {
+            font-size: 2rem;
+            color: #F2A900;
+            margin: 2rem 0;
+            animation: pulse 2s ease-in-out infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.6; }
+        }
+        
+        .countdown {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin: 3rem 0;
+            animation: fadeInUp 1s ease-out 0.4s;
+            animation-fill-mode: both;
+        }
+        
+        .countdown-item {
+            background: rgba(255,255,255,0.15);
+            padding: 1.5rem 2rem;
+            border-radius: 4px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+        
+        .countdown-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #F2A900;
+        }
+        
+        .countdown-label {
+            font-size: 0.9rem;
+            opacity: 0.9;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            padding: 0.875rem 2rem;
+            background: #F2A900;
+            color: #003057;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: all 0.3s;
+            margin: 0.5rem;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .btn:hover {
+            background: #e09a00;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(242,169,0,0.3);
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            border: 2px solid white;
+            color: white;
+        }
+        
+        .btn-secondary:hover {
+            background: white;
+            color: #003057;
+        }
+        
+        /* Cards */
+        .card {
+            background: white;
+            border-radius: 4px;
+            padding: 2rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+            transition: transform 0.3s, box-shadow 0.3s;
+            margin-bottom: 2rem;
+            border: 1px solid #F3F3EF;
+        }
+        
+        .card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.12);
+        }
+        
+        /* Mystery Card */
+        .mystery-card {
+            background: linear-gradient(135deg, #F3F3EF 0%, #e0e0e0 100%);
+            border: 2px dashed #006BA6;
+            text-align: center;
+            padding: 3rem;
+        }
+        
+        .mystery-card h3 {
+            color: #006BA6;
+            margin-bottom: 1rem;
+            font-size: 1.8rem;
+        }
+        
+        /* Typography */
+        h2 {
+            color: #006BA6;
+            font-weight: bold;
+            font-family: Arial, sans-serif;
+        }
+        
+        h3 {
+            color: #003057;
+            font-weight: bold;
+            font-family: Arial, sans-serif;
+        }
+        
+        h4 {
+            color: #006BA6;
+            font-weight: bold;
+            font-family: Arial, sans-serif;
+        }
+        
+        /* Clues Section */
+        .clues-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .clue-card {
+            background: #F3F3EF;
+            padding: 2rem;
+            border-radius: 4px;
+            text-align: center;
+            transition: all 0.3s;
+        }
+        
+        .clue-card:hover {
+            background: #e8e8e4;
+            transform: scale(1.05);
+        }
+        
+        .clue-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        /* Details/Summary styling */
+        details {
+            border: 1px solid #e0e0e0;
+            border-radius: 4px;
+            padding: 0.75rem 1rem;
+            background: #F3F3EF;
+            transition: all 0.3s;
+        }
+        
+        details:hover {
+            background: #e8e8e4;
+            border-color: #006BA6;
+        }
+        
+        summary {
+            cursor: pointer;
+            font-weight: bold;
+            color: #003057;
+            padding: 0.25rem 0;
+        }
+        
+        summary::-webkit-details-marker {
+            color: #F2A900;
+        }
+        
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav ul {
+                display: none;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .countdown {
+                flex-wrap: wrap;
+                gap: 1rem;
+            }
+        }
+        
+        /* Footer */
+        footer {
+            background: #003057;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+        }
+        
+        .hidden {
+            display: none;
+        }
+        
+        /* Modal styles for puzzle game */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.8);
+        }
+        
+        .modal-content {
+            background-color: #fefefe;
+            margin: 2% auto;
+            padding: 0;
+            width: 95%;
+            max-width: 1000px;
+            border-radius: 10px;
+            position: relative;
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+        
+        .close-modal {
+            color: #aaa;
+            position: absolute;
+            right: 20px;
+            top: 15px;
+            font-size: 35px;
+            font-weight: bold;
+            cursor: pointer;
+            z-index: 10;
+        }
+        
+        .close-modal:hover,
+        .close-modal:focus {
+            color: #000;
+        }
+        
+        /* Puzzle game styles */
+        #puzzleGameContainer {
+            padding: 20px;
+            font-family: 'Georgia', serif;
+            background: linear-gradient(135deg, #f4e4c1 0%, #e8d5b5 100%);
+            min-height: 500px;
+        }
+        
+        .puzzle-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .puzzle-header h2 {
+            color: #4a5568;
+            font-size: 2em;
+            margin-bottom: 10px;
+        }
+        
+        .passport-warning {
+            background: #ff6b6b;
+            color: white;
+            padding: 15px 25px;
+            border-radius: 25px;
+            font-weight: bold;
+            font-size: 1.1em;
+            box-shadow: 0 4px 15px rgba(255,107,107,0.3);
+            display: inline-block;
+            margin: 20px auto;
+        }
+        
+        .letters-collected {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin: 30px 0;
+            flex-wrap: wrap;
+        }
+        
+        .letter-slot {
+            width: 60px;
+            height: 60px;
+            border: 3px solid #4a5568;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2em;
+            font-weight: bold;
+            background: white;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .letter-slot.collected {
+            background: linear-gradient(135deg, #4ecdc4, #44a8b3);
+            color: white;
+            transform: scale(1.1);
+        }
+        
+        .puzzle-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 40px;
+        }
+        
+        .puzzle-card {
+            background: white;
+            border-radius: 20px;
+            padding: 20px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .puzzle-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+        }
+        
+        .puzzle-card.completed {
+            background: linear-gradient(135deg, #e8f5e9, #c8e6c9);
+            pointer-events: none;
+        }
+        
+        .puzzle-card.completed::after {
+            content: '✓';
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 2em;
+            color: #4caf50;
+        }
+        
+        .puzzle-title {
+            font-size: 1.3em;
+            color: #4a5568;
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+        
+        .mosaic-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 50px);
+            grid-template-rows: repeat(4, 50px);
+            gap: 3px;
+            margin: 20px auto;
+            width: fit-content;
+        }
+        
+        .mosaic-tile {
+            width: 50px;
+            height: 50px;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+        
+        .mosaic-tile:hover {
+            transform: scale(1.1);
+            border-color: #ffd700;
+        }
+        
+        .curves-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin: 20px 0;
+            flex-wrap: wrap;
+        }
+        
+        .curve-shape {
+            width: 80px;
+            height: 80px;
+            border-radius: 50% 20% 50% 20%;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2em;
+            color: transparent;
+        }
+        
+        .curve-shape:hover {
+            transform: rotate(45deg) scale(1.1);
+        }
+        
+        .color-sequence {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin: 20px 0;
+            flex-wrap: wrap;
+        }
+        
+        .color-button {
+            width: 60px;
+            height: 60px;
+            border-radius: 15px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 3px solid transparent;
+        }
+        
+        .color-button:hover {
+            transform: scale(1.1);
+            border-color: #333;
+        }
+        
+        .color-button.selected {
+            border-color: #ffd700;
+            transform: scale(1.1);
+        }
+        
+        .wave-pattern {
+            width: 100%;
+            height: 150px;
+            position: relative;
+            margin: 20px 0;
+            overflow: hidden;
+            border-radius: 20px;
+            background: linear-gradient(to right, #3498db, #2ecc71);
+        }
+        
+        .wave {
+            position: absolute;
+            width: 200%;
+            height: 100%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="%23ffffff" fill-opacity="0.3" d="M0,96L60,112C120,128,240,160,360,165.3C480,171,600,149,720,128C840,107,960,85,1080,90.7C1200,96,1320,128,1380,144L1440,160L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"></path></svg>') repeat-x;
+            animation: wave 10s linear infinite;
+        }
+        
+        @keyframes wave {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        
+        .hidden-letter {
+            position: absolute;
+            font-size: 3em;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+        
+        .hidden-letter.found {
+            opacity: 1;
+        }
+        
+        .number-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 80px);
+            gap: 10px;
+            margin: 20px auto;
+            width: fit-content;
+        }
+        
+        .number-tile {
+            width: 80px;
+            height: 80px;
+            background: #f0f0f0;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5em;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .number-tile:hover {
+            background: #e0e0e0;
+            transform: scale(1.05);
+        }
+        
+        .number-tile.correct {
+            background: #4caf50;
+            color: white;
+        }
+        
+        .success-message {
+            text-align: center;
+            font-size: 1.2em;
+            color: #4caf50;
+            margin-top: 20px;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+        
+        .success-message.show {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">Stora Konferensen 2025</div>
+            <ul>
+                <li><a href="#hem" onclick="showSection('hem')">Hem</a></li>
+                <li><a href="#ledtradar" onclick="showSection('ledtradar')">Ledtrådar</a></li>
+                <li><a href="#praktisk" onclick="showSection('praktisk')">Praktisk Info</a></li>
+                <li><a href="#kontakt" onclick="showSection('kontakt')">Kontakt</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hem Section -->
+        <section id="hem" class="hero">
+            <h1>Stora Konferensen 2025</h1>
+            <p class="subtitle">Walksamhetsutveckling - Destinationen är hemlig!</p>
+            <p class="mystery-text">🌍 Vart ska vi? 🤫</p>
+            <p style="font-size: 1.2rem; margin-bottom: 2rem;">12-15 september 2025</p>
+            
+            <div class="countdown">
+                <div class="countdown-item">
+                    <div class="countdown-number" id="days">87</div>
+                    <div class="countdown-label">Dagar</div>
+                </div>
+                <div class="countdown-item">
+                    <div class="countdown-number" id="hours">14</div>
+                    <div class="countdown-label">Timmar</div>
+                </div>
+                <div class="countdown-item">
+                    <div class="countdown-number" id="minutes">32</div>
+                    <div class="countdown-label">Minuter</div>
+                </div>
+            </div>
+            
+            <div>
+                <a href="#ledtradar" class="btn" onclick="showSection('ledtradar')">Se ledtrådar</a>
+                <a href="#praktisk" class="btn btn-secondary" onclick="showSection('praktisk')">Förbered dig</a>
+            </div>
+        </section>
+
+        <!-- Ledtrådar Section -->
+        <section id="ledtradar" class="hidden">
+            <h2 style="text-align: center; margin-bottom: 3rem; font-size: 2.5rem;">🔍 Ledtrådar om destinationen</h2>
+            
+            <div class="card" style="background: #F3F3EF; margin-bottom: 3rem;">
+                <h3 style="color: #006BA6; text-align: center; margin-bottom: 2rem;">🏆 Tävlingsledtrådar</h3>
+                
+                <div style="margin-bottom: 2rem;">
+                    <h4 style="color: #F2A900;">Ledtråd 1:</h4>
+                    <p style="font-style: italic; font-size: 1.1rem; padding: 1rem; background: white; border-radius: 4px;">
+                        "Efter 39 steg in i en ny upplevelse inser man ofta att det bara krävs 2 goda ingredienser för en minnesvärd resa."
+                    </p>
+                </div>
+                
+                <div style="margin-bottom: 2rem;">
+                    <h4 style="color: #F2A900;">Ledtråd 2:</h4>
+                    <div style="text-align: center; padding: 1rem; background: white; border-radius: 4px;">
+                        <audio controls style="width: 100%; max-width: 400px;">
+                            <source src="https://itid.se/wp-content/uploads/2025/06/ledtrad2.mp3" type="audio/mpeg">
+                            Din webbläsare stöder inte ljuduppspelning.
+                        </audio>
+                        <p style="margin-top: 0.5rem; font-size: 0.9rem; color: #666;">Lyssna noga... 🎵</p>
+                    </div>
+                </div>
+                
+                <div style="margin-bottom: 2rem;">
+                    <h4 style="color: #F2A900;">Ledtråd 3:</h4>
+                    <p style="text-align: center; font-style: italic;">En bild säger mer än tusen ord...</p>
+                    <div style="text-align: center; padding: 1rem; background: white; border-radius: 4px;">
+                        <img src="https://itid.se/wp-content/uploads/2025/06/ledtrad3.jpg" alt="Ledtråd 3" style="max-width: 100%; height: auto; border-radius: 4px;">
+                    </div>
+                </div>
+                
+                <div style="margin-bottom: 2rem;">
+                    <h4 style="color: #F2A900;">Ledtråd 4:</h4>
+                    <p style="font-style: italic; font-size: 1.1rem; padding: 1rem; background: white; border-radius: 4px;">
+                        "Lös pusslet för att hitta nästa ledtråd"
+                    </p>
+                    <div style="text-align: center; margin-top: 1rem;">
+                        <button onclick="openPuzzleGame()" class="btn" style="background: #006BA6; color: white;">
+                            🧩 Spela Pusslet
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="clues-container">
+                <div class="clue-card">
+                    <div class="clue-icon">🌍</div>
+                    <h4>Destination</h4>
+                    <p>Någonstans i Europa</p>
+                </div>
+                
+                <div class="clue-card">
+                    <div class="clue-icon">✈️</div>
+                    <h4>Restid</h4>
+                    <p>Lagom långt för en helg</p>
+                </div>
+                
+                <div class="clue-card">
+                    <div class="clue-icon">🎯</div>
+                    <h4>Aktiviteter</h4>
+                    <p>Walksamhetsutveckling väntar!</p>
+                </div>
+            </div>
+            
+            <div class="card" style="margin-top: 3rem; text-align: center; background: #F3F3EF;">
+                <h3 style="color: #006BA6;">📅 Fler ledtrådar kommer...</h3>
+                <p style="margin-top: 1rem;">Håll koll på denna sida för nya avslöjanden!</p>
+            </div>
+        </section>
+
+        <!-- Praktisk Info Section -->
+        <section id="praktisk" class="hidden">
+            <h2 style="text-align: center; margin-bottom: 3rem; font-size: 2.5rem;">Praktisk Information</h2>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
+                <div class="card">
+                    <h3 style="color: #006BA6; margin-bottom: 1rem;">✈️ Flyginformation</h3>
+                    <p style="margin-bottom: 1rem;"><strong>Alla flyger från sina hemorter den 12 september</strong></p>
+                    <p>Återkomst måndag 15 september</p>
+                    <p style="margin-top: 1rem; color: #F2A900;"><strong>Destination: Hemlig! 🤫</strong></p>
+                    <p style="margin-top: 1rem;">Detaljerad flyginformation kommer när destinationen avslöjas.</p>
+                </div>
+                
+                <div class="card">
+                    <h3 style="color: #006BA6; margin-bottom: 1rem;">🏨 Boende</h3>
+                    <p><strong>Rumsfördelning:</strong> Dubbelrum som delas med en kollega</p>
+                    <p><strong>Standard:</strong> Fint hotell med alla bekvämligheter</p>
+                    <p style="margin-top: 1rem; color: #F2A900;">Mer info kommer...</p>
+                </div>
+                
+                <div class="card">
+                    <h3 style="color: #006BA6; margin-bottom: 1rem;">🍽️ Mat & Dryck</h3>
+                    <p>Följande måltider ingår:</p>
+                    <ul style="list-style: none; padding-left: 0;">
+                        <li>✓ Frukost på hotellet</li>
+                        <li>✓ Luncher enligt program</li>
+                        <li>✓ Middagar enligt program</li>
+                    </ul>
+                    <p><strong>Alkohol:</strong> Företaget bjuder på två enheter per person till middagarna</p>
+                </div>
+                
+                <div class="card">
+                    <h3 style="color: #006BA6; margin-bottom: 1rem;">👔 Klädkod</h3>
+                    <p><strong>Walksamhetsutveckling-passen:</strong> Bekväma promenadkläder</p>
+                    <p><strong>Middagar:</strong> Smart casual</p>
+                    <p><strong>Tips:</strong> Vi avslöjar mer om klimatet snart!</p>
+                </div>
+                
+                <div class="card">
+                    <h3 style="color: #006BA6; margin-bottom: 1rem;">🧳 Packlista - Generell</h3>
+                    <p><strong>Måste ha:</strong></p>
+                    <ul style="list-style: none; padding-left: 0;">
+                        <li>✓ Pass eller nationellt ID-kort</li>
+                        <li>✓ Bekväma promenadskor</li>
+                        <li>✓ Kläder för 4 dagar</li>
+                        <li>✓ Kläder för middagar</li>
+                        <li>✓ Eventuell medicin</li>
+                        <li>✓ Laddare till mobil</li>
+                        <li>✓ Europeiskt sjukförsäkringskort</li>
+                    </ul>
+                    <p style="margin-top: 1rem; color: #F2A900;">Mer specifik packlista kommer när destinationen avslöjas!</p>
+                </div>
+                
+                <div class="mystery-card">
+                    <h3>🎯 Aktiviteter</h3>
+                    <p>Walksamhetsutveckling-sessioner</p>
+                    <p>Orientering med filmtema</p>
+                    <p>Teambuilding med överraskning</p>
+                    <p>Och mycket mer...</p>
+                    <p style="margin-top: 1rem; color: #F2A900;">Fullständigt program kommer!</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Kontakt Section -->
+        <section id="kontakt" class="hidden">
+            <h2 style="text-align: center; margin-bottom: 3rem; font-size: 2.5rem;">Kontakt & FAQ</h2>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
+                <div class="card">
+                    <h3 style="color: #006BA6; margin-bottom: 1.5rem;">📞 Kontaktpersoner</h3>
+                    
+                    <div style="margin-bottom: 1.5rem;">
+                        <h4>Matilda Höök</h4>
+                        <p>📱 070-930 42 25</p>
+                        <p>📧 <a href="mailto:matilda.hook@itid.se" style="color: #006BA6;">matilda.hook@itid.se</a></p>
+                    </div>
+                    
+                    <div style="margin-bottom: 1.5rem;">
+                        <h4>Jonathan Van Hooff</h4>
+                        <p>📱 070-100 91 64</p>
+                        <p>📧 <a href="mailto:jonathan.vanhooff@itid.se" style="color: #006BA6;">jonathan.vanhooff@itid.se</a></p>
+                    </div>
+                    
+                    <div>
+                        <h4>Dan Bergman</h4>
+                        <p>📱 070-515 84 22</p>
+                        <p>📧 <a href="mailto:dan.bergman@itid.se" style="color: #006BA6;">dan.bergman@itid.se</a></p>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <h3 style="color: #006BA6; margin-bottom: 1.5rem;">❓ Vanliga frågor</h3>
+                    
+                    <details style="margin-bottom: 1rem;">
+                        <summary style="cursor: pointer; font-weight: bold;">När får vi veta destinationen?</summary>
+                        <p style="margin-top: 0.5rem;">Håll utkik på denna sida! Vi kommer avslöja ledtrådar successivt.</p>
+                    </details>
+                    
+                    <details style="margin-bottom: 1rem;">
+                        <summary style="cursor: pointer; font-weight: bold;">Vad ska jag packa?</summary>
+                        <p style="margin-top: 0.5rem;">Se vår generella packlista ovan. Mer specifika tips kommer när destinationen avslöjas!</p>
+                    </details>
+                    
+                    <details style="margin-bottom: 1rem;">
+                        <summary style="cursor: pointer; font-weight: bold;">Behöver jag pass?</summary>
+                        <p style="margin-top: 0.5rem;">Ta med pass eller nationellt ID-kort för säkerhets skull!</p>
+                    </details>
+                    
+                    <details style="margin-bottom: 1rem;">
+                        <summary style="cursor: pointer; font-weight: bold;">Vad ingår i konferensen?</summary>
+                        <p style="margin-top: 0.5rem;">All kost, logi, transfer och aktiviteter ingår. Du behöver bara ta dig till flygplatsen.</p>
+                    </details>
+                    
+                    <details>
+                        <summary style="cursor: pointer; font-weight: bold;">Vad händer vid sjukdom?</summary>
+                        <p style="margin-top: 0.5rem;">Vid sjukdom, kontakta Matilda, Jonathan eller Dan omgående.</p>
+                    </details>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 iTid. Alla rättigheter förbehållna.</p>
+    </footer>
+
+    <!-- Puzzle Game Modal -->
+    <div id="puzzleModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closePuzzleGame()">&times;</span>
+            <div id="puzzleGameContainer">
+                <div class="puzzle-header">
+                    <h2>Hitta destinationen</h2>
+                    <div class="passport-warning">
+                        ⚠️ VIKTIGT: Alla deltagare måste ha med sig giltigt pass eller nationellt ID till konferensen
+                    </div>
+                </div>
+
+                <div class="letters-collected">
+                    <div class="letter-slot" id="letter-1"></div>
+                    <div class="letter-slot" id="letter-2"></div>
+                    <div class="letter-slot" id="letter-3"></div>
+                    <div class="letter-slot" id="letter-4"></div>
+                    <div class="letter-slot" id="letter-5"></div>
+                </div>
+
+                <div class="puzzle-container">
+                    <!-- Pussel 1: Mosaik -->
+                    <div class="puzzle-card" id="puzzle1">
+                        <div class="puzzle-title">Arkitektonisk mosaik</div>
+                        <div class="mosaic-grid" id="mosaicGrid"></div>
+                        <div class="success-message" id="success1">Bra jobbat! Du hittade bokstaven B!</div>
+                    </div>
+
+                    <!-- Pussel 2: Kurvor -->
+                    <div class="puzzle-card" id="puzzle2">
+                        <div class="puzzle-title">Organiska former</div>
+                        <div class="curves-container" id="curvesContainer"></div>
+                        <div class="success-message" id="success2">Utmärkt! Du hittade bokstaven A!</div>
+                    </div>
+
+                    <!-- Pussel 3: Färgsekvens -->
+                    <div class="puzzle-card" id="puzzle3">
+                        <div class="puzzle-title">Havets färger</div>
+                        <div class="color-sequence" id="colorSequence"></div>
+                        <div class="success-message" id="success3">Fantastiskt! Du hittade bokstaven H!</div>
+                    </div>
+
+                    <!-- Pussel 4: Vågor -->
+                    <div class="puzzle-card" id="puzzle4">
+                        <div class="puzzle-title">Havets rytm</div>
+                        <div class="wave-pattern">
+                            <div class="wave"></div>
+                            <div class="hidden-letter" id="hiddenI" style="top: 50%; left: 50%; transform: translate(-50%, -50%);">I</div>
+                        </div>
+                        <div class="success-message" id="success4">Strålande! Du hittade bokstaven I!</div>
+                    </div>
+
+                    <!-- Pussel 5: Nummer -->
+                    <div class="puzzle-card" id="puzzle5">
+                        <div class="puzzle-title">Den hemliga koden</div>
+                        <div class="number-grid" id="numberGrid"></div>
+                        <div class="success-message" id="success5">Perfekt! Du hittade bokstaven A!</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Navigation
+        function showSection(sectionId) {
+            // Hide all sections
+            const sections = document.querySelectorAll('section');
+            sections.forEach(section => {
+                if (section.id !== 'hem') {
+                    section.classList.add('hidden');
+                }
+            });
+            
+            // Show selected section
+            if (sectionId !== 'hem') {
+                document.getElementById(sectionId).classList.remove('hidden');
+            }
+            
+            // Scroll to top
+            window.scrollTo(0, 0);
+        }
+
+        // Countdown timer
+        function updateCountdown() {
+            const conferenceDate = new Date('2025-09-12T12:00:00');
+            const now = new Date();
+            const diff = conferenceDate - now;
+            
+            if (diff > 0) {
+                const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+                
+                document.getElementById('days').textContent = days;
+                document.getElementById('hours').textContent = hours;
+                document.getElementById('minutes').textContent = minutes;
+            } else {
+                // Konferensen har redan varit
+                document.getElementById('days').textContent = "0";
+                document.getElementById('hours').textContent = "0";
+                document.getElementById('minutes').textContent = "0";
+            }
+        }
+
+        // Update countdown every minute
+        setInterval(updateCountdown, 60000);
+        updateCountdown();
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+
+        // Puzzle Game Functions
+        function openPuzzleGame() {
+            document.getElementById('puzzleModal').style.display = 'block';
+            initializePuzzleGame();
+        }
+
+        function closePuzzleGame() {
+            document.getElementById('puzzleModal').style.display = 'none';
+        }
+
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            const modal = document.getElementById('puzzleModal');
+            if (event.target == modal) {
+                closePuzzleGame();
+            }
+        }
+
+        // Puzzle Game Logic
+        let collectedLetters = [];
+        const puzzleOrder = {
+            'puzzle1': { letter: 'B', index: 0 },
+            'puzzle2': { letter: 'A', index: 1 },
+            'puzzle3': { letter: 'H', index: 2 },
+            'puzzle4': { letter: 'I', index: 3 },
+            'puzzle5': { letter: 'A', index: 4 }
+        };
+        let completedPuzzles = new Set();
+        
+        function updateLetterDisplay() {
+            for (let puzzleId in puzzleOrder) {
+                if (completedPuzzles.has(puzzleId)) {
+                    const { letter, index } = puzzleOrder[puzzleId];
+                    const slot = document.getElementById(`letter-${index + 1}`);
+                    slot.textContent = letter;
+                    slot.classList.add('collected');
+                }
+            }
+            
+            if (completedPuzzles.size === 5) {
+                // Alla pussel är lösta
+                setTimeout(() => {
+                    alert('Grattis! Du har hittat destinationen: BAHIA! 🏝️');
+                }, 500);
+            }
+        }
+
+        function completePuzzle(puzzleId, letter) {
+            if (!completedPuzzles.has(puzzleId)) {
+                completedPuzzles.add(puzzleId);
+                document.getElementById(puzzleId).classList.add('completed');
+                document.getElementById(puzzleId.replace('puzzle', 'success')).classList.add('show');
+                updateLetterDisplay();
+            }
+        }
+
+        // Initialize puzzle game
+        function initializePuzzleGame() {
+            // Only initialize if not already done
+            if (!document.getElementById('mosaicGrid').hasChildNodes()) {
+                initMosaic();
+                initCurves();
+                initColorSequence();
+                initWaves();
+                initNumbers();
+            }
+        }
+
+        // Pussel 1: Mosaik
+        function initMosaic() {
+            const grid = document.getElementById('mosaicGrid');
+            const colors = ['#ff6b6b', '#4ecdc4'];
+            const correctPattern = [
+                1, 1, 1, 1,
+                1, 0, 0, 1,
+                1, 0, 0, 1,
+                1, 1, 1, 1
+            ];
+            let currentPattern = Array(16).fill(-1);
+            
+            const instruction = document.createElement('div');
+            instruction.style.textAlign = 'center';
+            instruction.style.marginBottom = '15px';
+            instruction.style.color = '#666';
+            instruction.innerHTML = 'Skapa en <strong style="color: #4ecdc4;">turkos ram</strong> runt <strong style="color: #ff6b6b;">röd mitt</strong>';
+            grid.parentElement.insertBefore(instruction, grid);
+            
+            for (let i = 0; i < 16; i++) {
+                const tile = document.createElement('div');
+                tile.className = 'mosaic-tile';
+                tile.style.background = '#f0f0f0';
+                tile.dataset.index = i;
+                
+                tile.addEventListener('click', function() {
+                    const index = parseInt(this.dataset.index);
+                    currentPattern[index] = (currentPattern[index] + 1) % 2;
+                    this.style.background = currentPattern[index] === 0 ? colors[0] : colors[1];
+                    
+                    if (currentPattern.every((val, idx) => val === correctPattern[idx])) {
+                        completePuzzle('puzzle1', 'B');
+                    }
+                });
+                
+                grid.appendChild(tile);
+            }
+        }
+
+        // Pussel 2: Kurvor
+        function initCurves() {
+            const container = document.getElementById('curvesContainer');
+            const shapes = [
+                { color: '#ff6b6b', rotation: '0deg', hasLetter: false },
+                { color: '#4ecdc4', rotation: '90deg', hasLetter: true },
+                { color: '#45b7d1', rotation: '180deg', hasLetter: false },
+                { color: '#f7dc6f', rotation: '270deg', hasLetter: false }
+            ];
+            
+            shapes.forEach((shape, index) => {
+                const div = document.createElement('div');
+                div.className = 'curve-shape';
+                div.style.background = shape.color;
+                div.style.transform = `rotate(${shape.rotation})`;
+                
+                if (shape.hasLetter) {
+                    div.addEventListener('click', function() {
+                        this.textContent = 'A';
+                        this.style.color = 'white';
+                        completePuzzle('puzzle2', 'A');
+                    });
+                }
+                
+                container.appendChild(div);
+            });
+        }
+
+        // Pussel 3: Färgsekvens
+        function initColorSequence() {
+            const container = document.getElementById('colorSequence');
+            const colors = ['#3498db', '#e74c3c', '#f39c12', '#2ecc71'];
+            const colorNames = ['Blå', 'Röd', 'Gul', 'Grön'];
+            
+            const hint = document.createElement('div');
+            hint.style.textAlign = 'center';
+            hint.style.marginBottom = '15px';
+            hint.style.color = '#666';
+            hint.innerHTML = 'Klicka på färgerna i denna ordning:<br><strong>Blå → Grön</strong>';
+            container.parentElement.insertBefore(hint, container);
+            
+            colors.forEach((color, index) => {
+                const button = document.createElement('div');
+                button.className = 'color-button';
+                button.style.background = color;
+                button.dataset.index = index;
+                button.title = colorNames[index];
+                
+                button.addEventListener('click', function() {
+                    if (index === 0 && !document.querySelector('.color-button.selected')) {
+                        this.classList.add('selected');
+                    } else if (index === 3 && document.querySelectorAll('.color-button.selected').length === 1) {
+                        this.classList.add('selected');
+                        setTimeout(() => {
+                            completePuzzle('puzzle3', 'H');
+                        }, 500);
+                    } else {
+                        document.querySelectorAll('.color-button').forEach(btn => {
+                            btn.classList.remove('selected');
+                        });
+                    }
+                });
+                
+                container.appendChild(button);
+            });
+        }
+
+        // Pussel 4: Vågor
+        function initWaves() {
+            const hiddenLetter = document.getElementById('hiddenI');
+            const wavePattern = document.querySelector('.wave-pattern');
+            
+            wavePattern.addEventListener('click', function(e) {
+                const rect = this.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+                
+                if (Math.abs(x - centerX) < 50 && Math.abs(y - centerY) < 50) {
+                    hiddenLetter.classList.add('found');
+                    setTimeout(() => {
+                        completePuzzle('puzzle4', 'I');
+                    }, 500);
+                }
+            });
+        }
+
+        // Pussel 5: Nummer
+        function initNumbers() {
+            const grid = document.getElementById('numberGrid');
+            const numbers = ['1', '2', '3', 'B', 'C', '7', '9', 'X', '5'];
+            let selectedNumbers = [];
+            
+            const instruction = document.createElement('div');
+            instruction.style.textAlign = 'center';
+            instruction.style.marginBottom = '15px';
+            instruction.style.color = '#666';
+            instruction.innerHTML = 'Hitta koden <strong>123BC</strong>';
+            grid.parentElement.insertBefore(instruction, grid);
+            
+            const shuffled = [...numbers].sort(() => Math.random() - 0.5);
+            
+            shuffled.forEach((num, index) => {
+                const tile = document.createElement('div');
+                tile.className = 'number-tile';
+                tile.textContent = num;
+                tile.dataset.value = num;
+                tile.dataset.index = index;
+                
+                tile.addEventListener('click', function() {
+                    const value = this.dataset.value;
+                    
+                    if (['1', '2', '3', 'B', 'C'].includes(value) && !this.classList.contains('correct')) {
+                        this.classList.add('correct');
+                        selectedNumbers.push(value);
+                        
+                        if (selectedNumbers.length === 5 && 
+                            selectedNumbers.includes('1') && 
+                            selectedNumbers.includes('2') && 
+                            selectedNumbers.includes('3') &&
+                            selectedNumbers.includes('B') &&
+                            selectedNumbers.includes('C')) {
+                            completePuzzle('puzzle5', 'A');
+                        }
+                    }
+                });
+                
+                grid.appendChild(tile);
+            });
+        }
+    </script>
+</body>
+</html>
