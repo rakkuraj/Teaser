@@ -712,7 +712,41 @@
                     <h4 style="color: #F2A900;">Ledtråd 3:</h4>
                     <p style="text-align: center; font-style: italic;">En bild säger mer än tusen ord...</p>
                     <div style="text-align: center; padding: 1rem; background: white; border-radius: 4px;">
-                        <img src="images/ledtrad3.jpg" alt="Ledtråd 3" style="max-width: 100%; height: auto; border-radius: 4px;">
+                        <svg width="300" height="300" viewBox="0 0 300 300" style="max-width: 100%; height: auto;">
+                            <!-- Bakgrund med himmel och mark -->
+                            <rect x="0" y="0" width="300" height="200" fill="#87CEEB"/>
+                            <rect x="0" y="200" width="300" height="100" fill="#8B7355"/>
+                            
+                            <!-- Sol -->
+                            <circle cx="250" cy="50" r="25" fill="#FFD700"/>
+                            
+                            <!-- Slungkastare figur -->
+                            <g transform="translate(100, 150)">
+                                <!-- Ben -->
+                                <line x1="0" y1="0" x2="-15" y2="40" stroke="#5C4033" stroke-width="8" stroke-linecap="round"/>
+                                <line x1="0" y1="0" x2="15" y2="40" stroke="#5C4033" stroke-width="8" stroke-linecap="round"/>
+                                
+                                <!-- Kropp -->
+                                <line x1="0" y1="0" x2="0" y2="-35" stroke="#5C4033" stroke-width="10" stroke-linecap="round"/>
+                                
+                                <!-- Armar och slunga -->
+                                <line x1="0" y1="-25" x2="-30" y2="-15" stroke="#5C4033" stroke-width="7" stroke-linecap="round"/>
+                                <line x1="0" y1="-25" x2="40" y2="-60" stroke="#5C4033" stroke-width="7" stroke-linecap="round"/>
+                                
+                                <!-- Slungan -->
+                                <line x1="40" y1="-60" x2="80" y2="-70" stroke="#8B4513" stroke-width="2"/>
+                                <line x1="40" y1="-60" x2="75" y2="-75" stroke="#8B4513" stroke-width="2"/>
+                                
+                                <!-- Sten i slungan -->
+                                <circle cx="78" cy="-72" r="5" fill="#696969"/>
+                                
+                                <!-- Huvud -->
+                                <circle cx="0" cy="-45" r="12" fill="#DEB887"/>
+                                
+                                <!-- Tunika -->
+                                <path d="M -15,-20 L 15,-20 L 12,0 L -12,0 Z" fill="#8B4513" opacity="0.8"/>
+                            </g>
+                        </svg>
                     </div>
                 </div>
                 
@@ -763,8 +797,13 @@
                 <div class="card">
                     <h3 style="color: #006BA6; margin-bottom: 1rem;">✈️ Flyginformation</h3>
                     <p style="margin-bottom: 1rem;"><strong>Alla flyger från sina hemorter den 12 september</strong></p>
-                    <p>Återkomst måndag 15 september</p>
                     <p style="margin-top: 1rem; color: #F2A900;"><strong>Destination: Hemlig! 🤫</strong></p>
+                    <p style="margin-top: 1rem;"><strong>Avgångstider:</strong></p>
+                    <ul style="list-style: none; padding-left: 0;">
+                        <li>• Alla utom Sandviken ska räkna med att vara på sin flygplats vid 5-tiden på fredag morgon</li>
+                        <li>• Sandviken kan tänka Arlanda före 7 på fredag morgon</li>
+                    </ul>
+                    <p style="margin-top: 1rem;">Återkomst måndag 15 september</p>
                     <p style="margin-top: 1rem;">Detaljerad flyginformation kommer när destinationen avslöjas.</p>
                 </div>
                 
@@ -794,18 +833,38 @@
                 </div>
                 
                 <div class="card">
-                    <h3 style="color: #006BA6; margin-bottom: 1rem;">🧳 Packlista - Generell</h3>
-                    <p><strong>Måste ha:</strong></p>
+                    <h3 style="color: #006BA6; margin-bottom: 1rem;">🧳 Packlista</h3>
+                    
+                    <p><strong>Kläder:</strong></p>
+                    <ul style="list-style: none; padding-left: 0; margin-bottom: 1rem;">
+                        <li>✓ Bekväma svala promenadkläder för 3 dagar</li>
+                        <li>✓ Svala kläder (det är varmt i september)</li>
+                        <li>✓ Vindtålig jacka</li>
+                        <li>✓ Kläder för middagar (smart casual)</li>
+                        <li>✓ Badkläder</li>
+                    </ul>
+                    
+                    <p><strong>Skor & Tillbehör:</strong></p>
+                    <ul style="list-style: none; padding-left: 0; margin-bottom: 1rem;">
+                        <li>✓ Bekväma promenadskor (gärna ingångna)</li>
+                        <li>✓ Sandaler/flip-flops för strand</li>
+                        <li>✓ Skor för middagar</li>
+                        <li>✓ Solglasögon</li>
+                        <li>✓ Hatt/keps</li>
+                    </ul>
+                    
+                    <p><strong>Övrigt:</strong></p>
                     <ul style="list-style: none; padding-left: 0;">
                         <li>✓ Pass eller nationellt ID-kort</li>
-                        <li>✓ Bekväma promenadskor</li>
-                        <li>✓ Kläder för 4 dagar</li>
-                        <li>✓ Kläder för middagar</li>
+                        <li>✓ Solskyddsfaktor (minst SPF 30)</li>
+                        <li>✓ After sun</li>
+                        <li>✓ Vattenflaska</li>
+                        <li>✓ Dagsryggsäck</li>
+                        <li>✓ Mobiltelefon, hörlurar och laddare</li>
+                        <li>✓ Anteckningsbok och penna</li>
                         <li>✓ Eventuell medicin</li>
-                        <li>✓ Laddare till mobil</li>
-                        <li>✓ Europeiskt sjukförsäkringskort</li>
+                        <li>✓ Europeiskt sjukförsäkringskort (om du har ett)</li>
                     </ul>
-                    <p style="margin-top: 1rem; color: #F2A900;">Mer specifik packlista kommer när destinationen avslöjas!</p>
                 </div>
                 
                 <div class="mystery-card">
